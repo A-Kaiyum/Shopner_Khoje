@@ -22,16 +22,17 @@
         return $data ? $data : [];
 
 }
-/*
 
 public function getDonation(){
-        $sql = "SELECT donation FROM ".$this->table_name;
-        $query = $this->db->query($sql);
-        $data = $query->fetchAll(PDO::FETCH_ASSOC);
-        return $data ? $data : [];
-
+        $sql = "SELECT sum(donation) as 'td' FROM donors";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        $req = $query->fetchAll(PDO::FETCH_ASSOC);
+        $td= $req[0]['td'];
+        return $td;
+        
 }
-*/
+
     public function getDonorById($id){
         $sql = "SELECT * FROM ".$this->table_name." WHERE id=?";
         $query = $this->db->prepare($sql);

@@ -8,16 +8,13 @@ include("dbconnection/DBconnection.php");
 include("model/member.php");
 include("model/donor.php");
 include("model/people.php");
-include("model/dashboard.php");
 
 
 $getMember = new members();
 $getMember = $getMember->getMembers();
 $getDonor = new donors();
-$getDonor = $getDonor->getDonors();
-
-$getDonation = new dashboard();
-$getDonation = $getDonation->getDonation();
+$getDonors = $getDonor->getDonors();
+$getDonation = $getDonor->getDonation();
 $getPeople = new peoples();
 $getPeople = $getPeople->getPeoples();
 
@@ -71,7 +68,7 @@ $getPeople = $getPeople->getPeoples();
                                 <div class="page-header-title">
                                     <h4 class="pull-left page-title">Dashboard</h4>
                                     <ol class="breadcrumb pull-right">
-                                        <li><a href="#">Xadmino</a></li>
+                                        <li><a href="#">Shopner Khuje</a></li>
                                         <li class="active">Dashboard</li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -80,7 +77,7 @@ $getPeople = $getPeople->getPeoples();
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-6">
                                 <div class="panel panel-primary text-center">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">Total Members</h4>
@@ -98,7 +95,7 @@ $getPeople = $getPeople->getPeoples();
                                 </div>
                             </div>
 
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-6">
                                 <div class="panel panel-primary text-center">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">Total Donors</h4>
@@ -106,7 +103,7 @@ $getPeople = $getPeople->getPeoples();
                                     <div class="panel-body">
                                         <h3 class=""><b>
                                             
-                                            <?= count($getDonor);?>
+                                            <?= count($getDonors);?>
                                                 
                                             </b></h3>
                                         
@@ -114,7 +111,7 @@ $getPeople = $getPeople->getPeoples();
                                 </div>
                             </div>
 
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-6">
                                 <div class="panel panel-primary text-center">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">Total Peoples</h4>
@@ -131,15 +128,15 @@ $getPeople = $getPeople->getPeoples();
                                 </div>
                             </div>
 
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-6">
                                 <div class="panel panel-primary text-center">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">Total Donation</h4>
                                     </div>
                                     <div class="panel-body">
                                     <h3>  
-                                                                          
-                                        <?= $getDonation?>
+
+                                        <?= $getDonation?> TK
 
                                       </h3>
                                     </div>
@@ -147,84 +144,7 @@ $getPeople = $getPeople->getPeoples();
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="panel panel-primary">
-                                    <div class="panel-body">
-                                        <h4 class="m-t-0">Revenue</h4>
-                                        <ul class="list-inline m-t-30 widget-chart text-center">
-	                                		<li>
-                                                <i class="mdi mdi-arrow-up-bold-circle text-success"></i>
-                                                <h4 class=""><b>5248</b></h4>
-	                                			<h5 class="text-muted m-b-0">Marketplace</h5>
-	                                		</li>
-	                                		<li>
-                                                <i class="mdi mdi-arrow-down-bold-circle text-danger"></i>
-                                                <h4 class=""><b>321</b></h4>
-	                                			<h5 class="text-muted m-b-0">Last week</h5>
-	                                		</li>
-	                                		<li>
-                                                <i class="mdi mdi-arrow-up-bold-circle text-success"></i>
-                                                <h4 class=""><b>964</b></h4>
-	                                			<h5 class="text-muted m-b-0">Last Month</h5>
-	                                		</li>
-	                                	</ul>
-                                        <div id="sparkline1" style="margin: 0 -21px -22px -22px;"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="panel panel-primary">
-                                    <div class="panel-body">
-                                        <h4 class="m-t-0">Email Sent</h4>
-                                        <ul class="list-inline m-t-30 widget-chart text-center">
-	                                		<li>
-                                                <i class="mdi mdi-arrow-up-bold-circle text-success"></i>
-                                                <h4 class=""><b>3654</b></h4>
-	                                			<h5 class="text-muted m-b-0">Marketplace</h5>
-	                                		</li>
-	                                		<li>
-                                                <i class="mdi mdi-arrow-down-bold-circle text-danger"></i>
-                                                <h4 class=""><b>954</b></h4>
-	                                			<h5 class="text-muted m-b-0">Last week</h5>
-	                                		</li>
-	                                		<li>
-                                                <i class="mdi mdi-arrow-up-bold-circle text-success"></i>
-                                                <h4 class=""><b>8462</b></h4>
-	                                			<h5 class="text-muted m-b-0">Last Month</h5>
-	                                		</li>
-	                                	</ul>
-                                        <div id="sparkline2" style="margin: 0 -21px -22px -22px;"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="panel panel-primary">
-                                    <div class="panel-body">
-                                        <h4 class="m-t-0">Monthly Subscriptions</h4>
-                                        <ul class="list-inline m-t-30 widget-chart text-center">
-	                                		<li>
-                                                <i class="mdi mdi-arrow-up-bold-circle text-success"></i>
-                                                <h4 class=""><b>3256</b></h4>
-	                                			<h5 class="text-muted m-b-0">Marketplace</h5>
-	                                		</li>
-	                                		<li>
-                                                <i class="mdi mdi-arrow-down-bold-circle text-danger"></i>
-                                                <h4 class=""><b>785</b></h4>
-	                                			<h5 class="text-muted m-b-0">Last week</h5>
-	                                		</li>
-	                                		<li>
-                                                <i class="mdi mdi-arrow-up-bold-circle text-success"></i>
-                                                <h4 class=""><b>1546</b></h4>
-	                                			<h5 class="text-muted m-b-0">Last Month</h5>
-	                                		</li>
-	                                	</ul>
-                                        <div id="sparkline3" style="margin: 0 -21px -22px -22px;"></div>
-                                    </div>
-                                </div>
-                            </div>
+                        
                         </div>
 
 
